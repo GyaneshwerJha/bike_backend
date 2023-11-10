@@ -5,6 +5,7 @@ import { selectLoggedInUser, createUserAsync } from '../authSlice';
 import { Link } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import img from '../../../assets/super-bike-vector-illustration-heavy-bike-vector-bike-logo-design_921448-826.avif'
+import { useEffect } from 'react';
 export default function Signup() {
   const dispatch = useDispatch();
   const user = useSelector(selectLoggedInUser);
@@ -15,20 +16,25 @@ export default function Signup() {
     formState: { errors },
   } = useForm();
 
-
+  useEffect(() => {
+    document.body.style.backgroundColor = '#45474B';
+    return () => {
+      document.body.style.backgroundColor = '';
+    };
+  }, []);
   return (
     <>
       {user && <Navigate to="/" replace={true}></Navigate>}
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+        <div className="sm:mx-auto sm:w-full sm:max-w-sm flex flex-col items-center">
           <img
-            className="h-8 w-8"
+            className="h-20 w-20"
             src={img}
-            alt="Your Company"
+            alt="Bike Showroom"
             style={{ borderRadius: '50%' }}
           />
 
-          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-slate-100">
             Create a New Account
           </h2>
         </div>
@@ -53,7 +59,7 @@ export default function Signup() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-sm font-medium leading-6 text-slate-100"
               >
                 Email address
               </label>
@@ -80,7 +86,7 @@ export default function Signup() {
               <div className="flex items-center justify-between">
                 <label
                   htmlFor="password"
-                  className="block text-sm font-medium leading-6 text-gray-900"
+                  className="block text-sm font-medium leading-6 text-slate-100"
                 >
                   Password
                 </label>
@@ -111,7 +117,7 @@ export default function Signup() {
               <div className="flex items-center justify-between">
                 <label
                   htmlFor="password"
-                  className="block text-sm font-medium leading-6 text-gray-900"
+                  className="block text-sm font-medium leading-6 text-slate-100"
                 >
                   Confirm Password
                 </label>
@@ -138,18 +144,18 @@ export default function Signup() {
             <div>
               <button
                 type="submit"
-                className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="flex w-full justify-center rounded-md bg-neutral-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-stone-600  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                Sign Up
+                Sign up
               </button>
             </div>
           </form>
 
-          <p className="mt-10 text-center text-sm text-gray-500">
+          <p className="mt-10 text-center text-sm text-slate-100">
             Already a Member?{' '}
             <Link
               to="/login"
-              className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+              className="font-semibold leading-6 text-slate-300 hover:text-slate-100"
             >
               Log In
             </Link>
