@@ -26,7 +26,7 @@ export default function Cart() {
   const totalItems = items.reduce((total, item) => item.quantity + total, 0);
 
   const handleQuantity = (e, item) => {
-    dispatch(updateCartAsync({id:item.id, quantity: +e.target.value }));
+    dispatch(updateCartAsync({ id: item.id, quantity: +e.target.value }));
   };
 
   const handleRemove = (e, id) => {
@@ -106,11 +106,11 @@ export default function Cart() {
                             dangerOption="Delete"
                             cancelOption="Cancel"
                             dangerAction={(e) => handleRemove(e, item.id)}
-                            cancelAction={()=>setOpenModal(null)}
+                            cancelAction={() => setOpenModal(null)}
                             showModal={openModal === item.id}
                           ></Modal>
                           <button
-                            onClick={e=>{setOpenModal(item.id)}}
+                            onClick={e => { setOpenModal(item.id) }}
                             type="button"
                             className="font-medium text-indigo-600 hover:text-indigo-500"
                           >
@@ -140,9 +140,9 @@ export default function Cart() {
             <div className="mt-6">
               <Link
                 to="/checkout"
-                className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                className="flex items-center justify-center rounded-md border border-transparent bg-neutral-950 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-neutral-100 hover:text-black hover:border-4 hover:border-sky-500"
               >
-                Checkout
+                Buy
               </Link>
             </div>
             <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
@@ -153,7 +153,7 @@ export default function Cart() {
                     type="button"
                     className="font-medium text-indigo-600 hover:text-indigo-500"
                   >
-                    Continue Shopping
+                    ..Go to the home page
                     <span aria-hidden="true"> &rarr;</span>
                   </button>
                 </Link>
