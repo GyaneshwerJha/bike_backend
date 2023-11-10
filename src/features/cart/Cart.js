@@ -140,7 +140,7 @@ export default function Cart() {
             <div className="mt-6">
               <Link
                 to="/checkout"
-                className="flex items-center justify-center rounded-md border border-transparent bg-neutral-950 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-neutral-100 hover:text-black hover:border-4 hover:border-sky-500"
+                className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-neutral-800 px-8 py-3 text-base font-medium text-white hover:bg-neutral-950 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 Buy
               </Link>
