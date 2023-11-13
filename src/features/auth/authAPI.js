@@ -1,7 +1,7 @@
 
 export function createUser(userData) {
   return new Promise(async (resolve) => {
-    const response = await fetch('http://localhost:8080/auth/signup', {
+    const response = await fetch('https://bike-showroom-backendd.onrender.com/auth/signup', {
       method: 'POST',
       body: JSON.stringify(userData),
       headers: { 'content-type': 'application/json' },
@@ -15,7 +15,7 @@ export function createUser(userData) {
 export function checkUser(loginInfo) {
   return new Promise(async (resolve, reject) => {
     try {
-      const response = await fetch('http://localhost:8080/auth/login', {
+      const response = await fetch('https://bike-showroom-backendd.onrender.com/auth/login', {
         method: 'POST',
         body: JSON.stringify(loginInfo),
         headers: { 'content-type': 'application/json' },
@@ -28,7 +28,7 @@ export function checkUser(loginInfo) {
         reject(error);
       }
     } catch (error) {
-      reject( error );
+      reject(error);
     }
 
     // TODO: on server it will only return some info of user (not password)
